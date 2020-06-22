@@ -1,0 +1,80 @@
+@startuml logging system
+
+' STYLE START
+hide empty members
+skinparam shadowing false
+' STYLE END
+
+
+class "LoggerFactory" as LoggerFactory {
++{static} bootstrap(handlerType:levelThreshold)
++{static} shutdown()
++{static} createLogger(category): Logger
+}
+
+class "Logger" as Logger {
+  +{static} default: Logger
+  ~init(handler:category:)
+  +d(_:filename:function:line:)
+  +i(_:filename:function:line:)
+  +e(_:filename:function:line:)
+  +w(_:filename:function:line:)
+
+}
+
+Logger --> LogHandler
+LoggerFactory --> Logger
+
+
+class "LogHandler" as LogHandler << (P,GoldenRod) protocol >> {
+  ~log(category:level:message:filename:function:line:)
+
+}
+
+class "ConsoleLogHandler" as ConsoleLogHandler {
+  ~init(category:showIndicator:)
+  ~log(category:level:message:filename:function:line:)
+
+}
+
+ConsoleLogHandler ..|> LogHandler 
+
+
+class "FileLogHandler" as FileLogHandler {
+  ~init(showIndicator:)
+  ~log(category:level:message:filename:function:line:)
+  ~deleteFile(_:)
+  -write(_:)
+  -coordinateWriting(data:to:)
+  -createFile(url:)
+
+}
+
+FileLogHandler ..|> LogHandler 
+
+class "RSLogHandler" as RSLogHandler {
+  ~init(showIndicator:)
+  ~dispose()
+  ~log(category:level:message:filename:function:line:)
+  -send(_:)
+  -buildPayload()
+
+}
+
+RSLogHandler ..|> LogHandler 
+
+
+' class "LogLevel" as LogLevel << (E,LightSteelBlue) enum >> {
+
+' }
+
+' class "LogHandlerType" as LogHandlerType << (E,LightSteelBlue) enum >> {
+
+' }
+' class "LogCategory" as LogCategory << (E,LightSteelBlue) enum >> {
+
+' }
+
+
+@enduml
+

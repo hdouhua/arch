@@ -1,0 +1,47 @@
+@startuml caching system
+
+' STYLE START
+hide empty members
+skinparam shadowing false
+' STYLE END
+
+
+class CacheBuilder << (I,GoldenRod) interface >> {
+
+  +rebuild(Config conf)
+
+}
+
+class "Cache" as Cache << (I,GoldenRod) interface >> {
+
+  +get(Object key): Object
+  +put(Object key, Object value)
+  +delete(Object key)
+
+}
+
+class MemoryCacheBuilder {
+
+}
+class ReidsCacheBuilder {
+
+}
+
+class MemoryCache {
+
+}
+class ReidsCache {
+
+}
+
+
+MemoryCache ..|> Cache
+ReidsCache ..|> Cache
+
+MemoryCacheBuilder ..|> CacheBuilder
+MemoryCacheBuilder --> MemoryCache
+
+ReidsCacheBuilder ..|> CacheBuilder
+ReidsCacheBuilder --> ReidsCache
+
+@enduml

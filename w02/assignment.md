@@ -12,7 +12,7 @@
 
      > 解释一下所谓“反转”：本来是较高层模块依赖较低层模块，在较高层模块中加入抽象接口后，较低层模块依赖高层的抽象接口了。
 
-   《贴图》
+   ![DIP](./res/dip.jpg)
 
    - 好莱坞原则 Hollywood Principle：不要打电话给我们，我们会打电话给你。
 
@@ -54,14 +54,14 @@
    }
    ```
 
-《贴图》
+![DIP](./res/logging.jpg)
 
 3. 请用`接口隔离原则`优化`Cache`类的设计，画出优化后的类图
 
-![caching](./cache.png)
+![caching](./res/cache.jpg)
 
 接口隔离原则（Interface Segregation Principle）：没有client应该被强迫依赖于它不使用的方法。ISP拆分非常庞大臃肿的接口成为更小的和更具体的接口，这样client将会只需要知道他们感兴趣的方法。
 
 根据ISP的优化是拆分`Cache`，请参考下图。
 
-《贴图》
+![caching2](./res/cache2.jpg)
