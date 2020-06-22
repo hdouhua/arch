@@ -114,5 +114,4 @@ namespace arch.Composite
 
   <img src="./res/output.jpg" alt="output" style="zoom:50%;" />
 
-> [详细代码](https://github.com/hdouhua/arch/w03/Composite/)
-
+> [详细代码](https://github.com/hdouhua/arch/tree/master/w03/Composite)
