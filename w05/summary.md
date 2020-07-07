@@ -49,8 +49,7 @@
 
   缓存对象的生存时间由业务场景决定。对象缓存的时间越长，被重用的可能性就越高。
 
-
-##### 通读缓存 read-through
+#### 通读缓存 read-through
 
 通读缓存给客户端返回缓存资源，并在请求未命中缓存时获取实际数据
 
@@ -58,13 +57,13 @@
 
 代理缓存、反向代理缓存、CDN缓存都是通读缓存
 
-##### 旁路缓存 cache-aside
+#### 旁路缓存 cache-aside
 
 对象缓存是一种旁路缓存，通常是独立的键值对存储
 
 应用代码通常会询问对象缓存需要的对象是否存在，如果存在，使用其；如果不存在或已过期，应用会连接主数据源来组装对象，并起将其保存回对象缓存，以便将来使用。
 
-##### 本地对象缓存
+#### 本地对象缓存
 
 对象直接存储在应用程序内存中
 
@@ -72,7 +71,7 @@
 
 缓存服务器作为独立的应用和应用程序部署在同一个服务器上
 
-##### 本地/远程对象缓存构建分布式集群
+#### 本地/远程对象缓存构建分布式集群
 
 ##### 分布式对象缓存的一致性hash算法
 
@@ -83,13 +82,13 @@
 - 分散性spread
 - 负载性load
 
-##### 各种介质的数据访问延迟
+#### 各种介质的数据访问延迟
 
-<img src="./res/latency.jpg" alt="latency" style="zoom:40%;" />
+<div align=center><img src="./res/latency.jpg" alt="latency" width="50%;" /></div>
 
-##### 技术栈各层次的缓存
+#### 技术栈各层次的缓存
 
-<img src="./res/cache-in-tier.jpg" alt="cache-in-tier" style="zoom:50%;" />
+<div align=center><img src="./res/cache-in-tier.jpg" alt="cache-in-tier" width="40%;" /></div>
 
 ##### 缓存为什么能显著提高性能
 
@@ -137,31 +136,32 @@
 
 ## 消息队列与异步架构
 
-缓存提高系统的读能力，消息队列提升系统的写能力
+> 缓存提高系统的读能力，消息队列提升系统的写能力
+>
+>同步调用 vs 异步调用
+>
 
-同步调用 vs 异步调用
-
-消息队列构建异步调用架构
+### 消息队列构建异步调用架构
 
 - 消息生产者
 - 消息队列
 - 消息消费者
 
-消息队列模型
+### 消息队列模型
 
 - 点对点模型
 
-  <img src="./res/end-to-end-mode.jpg" alt="end-to-end-mode" style="zoom:30%;" />
+<div align=center><img src="./res/end-to-end-mode.jpg" alt="end-to-end-mode" width="50%;" /></div>
 
 - 发布订阅模型
 
-  <img src="./res/pub-sub-mode.jpg" alt="pub-sub-mode" style="zoom:30%;" />
+<div align=center><img src="./res/pub-sub-mode.jpg" alt="pub-sub-mode" width="50%;" /></div>
 
-优点
+### 优点
 
 - 实现异步处理，提升处理性能
 
-  <img src="./res/async-process.jpg" alt="async-process" style="zoom:40%;" />
+<div align=center><img src="./res/async-process.jpg" alt="async-process" width="60%;" /></div>
 
 - 更好的伸缩性
 
@@ -176,11 +176,12 @@
 - 解耦
 
   - 减少耦合表面积
-    <div align=center><img src="./res/decoupling.jpg" alt="decoupling" width="50%" /></div>
-
-    <img src="./res/reduce-coupling-surface-area.jpg" alt="reduce-coupling-surface-area" style="zoom:50%;" />
-
-#### 主要MQ产品
+    
+<div align=center>
+<img src="./res/decoupling.jpg" alt="decoupling" width="50%" />
+<img src="./res/reduce-coupling-surface-area.jpg" alt="reduce-coupling-surface-area" />
+</div>
+### 主要MQ产品
 
 - RabbitMQ
 
@@ -213,38 +214,38 @@
 
 - HTTP重定向负载均衡
 
-  <img src="./res/http-redirect-lb.jpg" alt="http-redirect-loadbalance" style="zoom:40%;" />
-
   - 缺点：每次请求需要重定向
+
+<div align=center><img src="./res/http-redirect-lb.jpg" alt="http-redirect-loadbalance" width="50%;" /></div>
 
 - DNS负载均衡
 
-  <img src="./res/dns-lb.jpg" alt="dns-loadbalance" style="zoom:40%;" />
-
   - 缺点：每次请求需要域名解析，但是浏览器有本地域名缓存
+
+<div align=center><img src="./res/dns-lb.jpg" alt="dns-loadbalance" width="50%;" /></div>
 
 - 反向代理负载均衡
 
-  <img src="./res/reverse-proxy-lb.jpg" alt="reverse-proxy-loadbalance" style="zoom:40%;" />
+<div align=center><img src="./res/reverse-proxy-lb.jpg" alt="reverse-proxy-loadbalance" width="50%;" /></div>
 
 - IP负载均衡
-
-  <img src="./res/ip-lb.jpg" alt="IP-loadbalance" style="zoom:40%;" />
 
   - 三层负载均衡
   - 负载均衡服务器修改了目标IP地址
   - 缺点：用户请求和响应数据包都需要经过负载均衡服务器，因此负载均衡的负载受制于响应的出口带宽
 
-- 数据链路层负载均衡
+<div align=center><img src="./res/ip-lb.jpg" alt="IP-loadbalance" width="60%;" /></div>
 
-  <img src="./res/data-link-layer-lb.jpg" alt="data-link-layer-loadbalance" style="zoom:40%;" />
+- 数据链路层负载均衡
 
   - 二层负载均衡
   - 与IP负载均衡相似，只是响应的数据包不经过负载均衡服务器。实现方式是把上面的修改目标IP地址改为修改目标的MAC地址。
   - 目前大型网站主要的负载均衡方案
   - LVS可以支持IP负载均衡和数据链路层负载均衡
 
-#### 负载均衡算法
+<div align=center><img src="./res/data-link-layer-lb.jpg" alt="data-link-layer-loadbalance" width="60%;" /></div>
+
+### 负载均衡算法
 
 - 轮询
 - 加权轮询
@@ -252,7 +253,7 @@
 - 最少连接：最符合负载均衡定义的算法
 - 源地址散列：根据请求来源的IP地址进行hash计算，得到应用服务器，保证同一来源的请求总在同一台服务器上处理
 
-#### 应用服务器集群的 session 管理
+### 应用服务器集群的 session 管理
 
 - sesion 复制
 
@@ -315,7 +316,6 @@
 
 - 更新表结构会导致巨大的同步延迟
 
-
-### 推荐书籍
+## 推荐书籍
 
 《互联网创业核心技术——构建可伸缩的Web应用》
