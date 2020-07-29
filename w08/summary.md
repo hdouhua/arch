@@ -20,11 +20,11 @@ O(n)表示需要临时存储n个数据
 
 ### NP问题
 
-理论信息学的计算复杂度理论领域的未解之谜。[参考]([https://zh.wikipedia.org/wiki/P/NP%E9%97%AE%E9%A2%98](https://zh.wikipedia.org/wiki/P/NP问题))
+理论信息学的计算复杂度理论领域的未解之谜。[参考](https://zh.wikipedia.org/wiki/P/NP问题)
 
-**[P](https://zh.wikipedia.org/wiki/P_(复杂度))**类复杂度：能在多项式表达的时间复杂度内解决的问题
+[**P**](https://zh.wikipedia.org/wiki/P_(复杂度))类复杂度：能在多项式表达的时间复杂度内解决的问题
 
-**[NP](https://zh.wikipedia.org/wiki/NP_(复杂度))**类复杂度：能在多项式时间复杂度内验证它的解是否正确的问题集合
+[**NP**](https://zh.wikipedia.org/wiki/NP_(复杂度))类复杂度：能在多项式时间复杂度内验证它的解是否正确的问题集合
 
 P=NP，但计算机科学家认为 P !=  NP，所以  P ?= NP 未解
 
@@ -48,10 +48,9 @@ NP-complete：是一个 NP-hard 问题，也是一个 NP 问题
 
 - 在链表中查找元素，只能遍历链表；链表查找的时间复杂度是O(n)，删除节点的时间复杂度是O(1)
 
+#### 哈希表 （散列表 hash table）
 
-是否可以结合数组和链表的优势来实现快速查找和快速增删？
-
-##### 哈希表 （散列表 hash table）
+是否可以结合数组和链表的优势来实现快速查找和快速增删？这就是我们要讨论的哈希表。
 
 根据键值对（key-value）来直接进行访问的数据结构。把key映射到列表中一个位置来访问记录，以加快查找的速度。这个映射函数叫作散列函数/哈希函数，存放记录的数组叫作散列表/哈希表。
 
@@ -195,7 +194,8 @@ NP-complete：是一个 NP-hard 问题，也是一个 NP 问题
 
 遗传算法得到的不是最优解。
 
->**数据结构与算法是必备基础，但算法不是必须能写出！**
+<div align=center>数据结构与算法是必备基础，但算法不是必须能写出！<div>
+
 
 ## 网络与数据库
 
@@ -218,6 +218,7 @@ NP-complete：是一个 NP-hard 问题，也是一个 NP 问题
 <div align=center>
 <img src="./res/tcp-ip-header.png" alt="tcp-ip-header" width="45%;" />
 </div>
+
 
 - 物理层
 
@@ -249,8 +250,10 @@ NP-complete：是一个 NP-hard 问题，也是一个 NP 问题
 
   IP协议不是一个可靠的通信协议，不会建立稳定的通信链路，并不会确保数据一定送达。要保证通信的稳定可靠，需要传输层协议TCP。
 
-  TCP协议是一种面向连接的、可靠的、基于字节流的传输层协议。TCP作为一个比较基础的通信协议，有很多重要机制保证了TCP协议的可靠性和强壮性：
+  TCP协议是一种面向连接的、可靠的、基于字节流的传输层协议。
 
+  TCP作为一个比较基础的通信协议，有很多重要机制保证了TCP协议的可靠性和强壮性：
+  
   - 使用序号，对收到的TCP报文段进行排序和检测重复的数据
   - 无错传输，使用校验码检测报文段的错误
   - 使用确认和计时器来检测和纠正丢包或延时
@@ -292,8 +295,9 @@ NP-complete：是一个 NP-hard 问题，也是一个 NP 问题
     - 5xx服务器错误：服务器在处理请求时发生错误
 
 <div align=center>
-  <img src="./res/http-response.jpg" alt="http response" width="60%;" />
+  <img src="./res/http-response.jpg" alt="http response" width="65%;" />
 </div>
+
 
 - HTTP 协议版本
 
@@ -312,4 +316,143 @@ NP-complete：是一个 NP-hard 问题，也是一个 NP 问题
 ### 非阻塞网络IO
 
 计算机之间如何进行网络请求？
+
+
+
+#### 阻塞I/O BIO blocking I/O
+
+阻塞I/O：进行I/O操作时，用户线程会一直阻塞，直到读操作/写操作完成。
+
+<div align=center><img src="./res/bio.jpg" alt="blocking IO" width="45%;" /></div>
+
+Socket 接收数据，系统内核的处理过程
+
+<div align=center><img src="./res/socket-process-in-kernel.jpg" alt="socket-process-in-kernel" width="50%;" /><img src="./res/tcp-bytes.jpg" alt="tcp-bytes" width="45%;" /></div>
+
+#### 非阻塞I/O non-blocking I/O
+
+非阻塞I/O：I/O操作立即返回，发起线程不会阻塞等待。
+
+<div align=center><img src="./res/nio.jpg" alt="non blocking I/O" width="50%;" /></div>
+
+非阻塞读操作：
+
+- socket 接收缓冲区有数据，读n个（不保证数据被读完整，因此有可能多次读取）
+- socket 接收缓冲区没有数据，则返回失败（不会等待）
+
+非阻塞写操作：
+
+- socket 发送缓冲区满，返回失败（不会等待）
+- socket 发送缓冲区不满，写n个数据（不保证一次性写入，因此可能需要多次写入）
+
+#### Java NIO （new I/O）
+
+这部分没有概念，需要日后补上
+
+<div align=center><img src="./res/java-nio.jpg" alt="Java NIO" width="50%;" /></div>
+
+#### 系统I/O复用方式：select，poll，epoll
+
+<div align=center><img src="./res/system-io-poll.jpg" alt="system IO" width="50%;" /></div>
+
+- select poll 下的读过程
+
+<div align=center><img src="./res/io-read-poll.jpg" alt="Read in POLL" width="50%;" /></div>
+
+- epoll下的读过程
+
+<div align=center><img src="./res/io-read-epoll.jpg" alt="Read in EPOLL" width="50%;" /></div>
+
+- 无活动连接时，Selector.select方法被阻塞
+
+  <div align=center><img src="./res/selector-select.jpg" alt="selector-select" width="70%;" /></div>
+
+### 数据库架构原理与性能优化
+
+#### 数据库架构
+
+<div align=center><img src="./res/database-arch.jpg" alt="database arch" /></div>
+
+#### 连接器
+
+数据库连接器会为每个连接请求分配一块专用的内存空间用于会话上下文管理。建立连接对数据库而言相对比较重，需要花费一定的时间，因此应用启动的时候，通常会初始化建立一些数据库连接放在连接池里，这样当处理外部请求执行SQL操作的时候，就不需要花费时间建立连接了。
+
+#### 语法分析器
+
+语法分析的DSL得到AST
+
+测试一下下面语句，可以看到语法分析器返回结果
+
+```sql
+explain select * from users whee id=1;
+```
+
+#### 语义分析与优化器
+
+语义分析与优化器就是要将各种复杂嵌套的SQL进行语义等价转化，得到有限几种关系的代数计算结构，并利用索引等信息进一步进行优化。
+
+#### 执行计划
+
+<div align=center><img src="./res/database-execution-plan.jpg" alt="database execution plan" /></div>
+
+
+
+现在来回答：为什么PrepareStatement更好
+
+PrepareStatement 会预先提交带占位符的 SQL 到数据库进行预处理，提前生成执行计划，当给定占位符参数，真正执行SQL时，执行引擎可以直接执行，效率更好些。
+
+同时 PrepareStatement 可以防止SQL注入攻击。
+
+#### 索引
+
+- 聚簇索引
+
+  聚簇索引：它的数据库记录和索引存储在一起。
+  
+  MySQL数据库的主键就是聚簇索引，主键和所在记录行存储在B+树中。
+
+- 非聚簇索引
+
+  非聚簇索引在叶子节点记录的就不是数据行记录，而是聚簇索引，也就是主键。
+  
+  通过非聚簇索引找到主键索引，再通过主键索引找到行记录，这个过程称作**回表**。
+
+- 添加必要的索引优化SQL查询性能
+
+  在几百万行的数据库中查找一条记录，如果没有索引，就需要全表扫描，检索所有的行记录，才能找到所需要的记录。
+
+  下面是无索引和有索引查询结果比较
+
+- 慎用索引
+
+  - 不要盲目添加索引，尤其在生产环境中
+
+    - 添加索引的操作会消耗较长的时间（分钟级别）
+    - 这期间，所有数据库的增删改操作全被阻塞，对应用而言，因为连接不能释放，事实上，查询也被阻塞了
+  - 删除不用的索引，避免不必要的增删开销
+  - 使用更小的数据类型索引
+    - int 4个字节，bigint 8个字节
+    - Timestamp 4个字节，Datetime 8个字节
+
+#### 数据库的事务
+
+事务特性的ACID，参考第六周的总结
+
+数据库的事务日志
+
+进行事务操作时，事务日志文件会记录更新前的数据记录，然后再更新数据库中的记录，如果全部记录都更新成功，那么事务正常结束，如果过程中某条记录更新失败，那么整个事务全部回滚，已经更新的记录根据事务日志中记录的数据进行恢复，这样全部数据都恢复到事务提交前的状态，仍然保持数据一致性。
+
+LSN：一个按时间顺序分配的唯一事务记录日志序列号
+
+TransID：产生操作的事务ID
+
+PageID：被修改的数据在磁盘上的位置
+
+PreLSN：同一事务产生的上一条日志记录的指针
+
+UNDO：取消本次操作的方法，按照此方法回滚
+
+REDO：重复本次操作
+
+<div align=center><img src="./res/database-transation-log.jpg" alt="database transation log" width="50%;" /></div>
 
