@@ -199,7 +199,7 @@ Service Mesh 是一个基础设施层，用于处理服务间的通信，通常�
 断路器有如下三种状态：关闭、打开、半开
 
 <div align=center>
-<img src="./res/circuit-breaker.jpg" alt="circuit-breaker" width="60%;" />
+<img src="./res/circuit-breaker.jpg" alt="circuit-breaker" width="70%;" />
 </div>
 
 #### 服务重试及调用超时
@@ -217,11 +217,13 @@ Service Mesh 是一个基础设施层，用于处理服务间的通信，通常�
 <div align=center>
 <img src="./res/api-gateway.jpg" alt="api-gateway" width="60%;" />
 </div>
+
 ##### 网关作用
 
 <div align=center>
 <img src="./res/api-gateway-effect.jpg" alt="api-gateway-effect" width="60%;" />
 </div>
+
 ##### 微服务网关
 
 
@@ -254,6 +256,7 @@ Service Mesh 是一个基础设施层，用于处理服务间的通信，通常�
 <div align=center>
 <img src="./res/oauth2.0.jpg" alt="oauth2.0" width="80%;" />
 </div>
+
 #### 授权码授权
 
 OAuth2.0有四种授权方式，分别是授权码、隐式授权、资源所有者密码凭据和客户端凭据。
