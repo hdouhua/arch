@@ -1,0 +1,57 @@
+@startuml dubbo invoke
+
+hide footbox
+title 一次dubbo服务调用
+
+' https://plantuml-documentation.readthedocs.io/en/latest/formatting/all-skin-params.html
+' https://github.com/aoki/cplant
+!define BLACK   #363D5D
+!define RED     #F6363F
+!define PINK    #F6216E
+!define MAGENTA #A54FBD
+!define GREEN   #37A77C
+!define YELLOW  #F97A00
+!define BLUE    #1E98F2
+!define CYAN    #25AFCA
+!define WHITE   #FEF2DC
+
+' skinparam handwritten true
+skinparam Shadowing false
+skinparam BackgroundColor transparent
+skinparam ComponentStyle uml2
+
+skinparam Sequence {
+  ArrowThickness 1
+  ArrowColor RED
+  ActorBorderThickness 1
+  LifeLineBorderColor GREEN
+  ParticipantBorderThickness 0
+}
+skinparam Participant {
+  BackgroundColor BLACK
+  BorderColor BLACK
+  FontColor #FFFFFF
+}
+
+
+participant "服务消费者" as consumer
+participant "服务注册中心" as registry
+participant "服务提供者" as provider
+
+' == init ==
+provider -> provider: 服务启动
+provider -> registry: 注册服务
+
+consumer -> consumer: 消费者启动
+consumer -> registry: 订阅服务
+activate registry
+return 服务提供者地址列表
+' note left: this is a first note
+
+' == invoke ==
+consumer -> consumer: 基于软负载均衡算法，\n选择服务提供者
+consumer -> provider: 请求服务
+activate provider
+return 返回请求结果
+
+@enduml

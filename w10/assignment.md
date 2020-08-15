@@ -24,16 +24,16 @@
 
 调用关系说明：
 
-- 服务容器负责启动，加载，运行服务提供者。
-- 服务提供者在启动时，向注册中心注册自己提供的服务。
-- 服务消费者在启动时，向注册中心订阅自己所需的服务。
-- 注册中心返回服务提供者地址列表给消费者，如果有变更，注册中心将基于长连接推送变更数据给消费者。
-- 服务消费者，从提供者地址列表中，基于软负载均衡算法，选一台提供者进行调用，如果调用失败，再选另一台调用。
-- 服务消费者和提供者，在内存中累计调用次数和调用时间，定时每分钟发送一次统计数据到监控中心。
+1. 服务容器负责启动，加载，运行服务提供者。
+2. 服务提供者在启动时，向注册中心注册自己提供的服务。
+3. 服务消费者在启动时，向注册中心订阅自己所需的服务。
+4. 注册中心返回服务提供者地址列表给消费者，如果有变更，注册中心将基于长连接推送变更数据给消费者。
+5. 服务消费者，从提供者地址列表中，基于软负载均衡算法，选一台提供者进行调用，如果调用失败，再选另一台调用。
+6. 服务消费者和提供者，在内存中累计调用次数和调用时间，定时每分钟发送一次统计数据到监控中心。
 
 微服务调用的时序图如下：
 
-
+![dubbo invoke](http://www.plantuml.com/plantuml/png/TPFVJXD16CNlvoa-uS8h4oX2XGJ3jjr5Ggq4C8J4cw4xfPEsCtLs2X9ZqaXGH5GICPZmXzIhcYXW88eeyZBTPRdo5HncwR8qs3Hfy_lET_QSsTq1Hs8XAwKYs9MfAGwKpV02GIXFRG8vpkKKVu8abKK2ZSEgzwMcPTx66tUfvk_DdwxM4RfXannb119f8paC0ErTFLsfxbJ8HysKeefRFMfYXNnaA3DymMETFMR8xnk3PcRSW7QZ-xQLkFGP73NDZFQF6_5uCkIJPZhzOEBSfpTkT7H4yZmqjN-dsNl7YeKyEMbaD8zr6rRI2Fd4lQ5nK-SnhLWgYT1DS0gKbR709SXZPiyAAYLX84M5eClHM1xRV9QoQSZXeXET972sC2ruXTb9NkH2BMBcg15XCg9AybAPCyN6v5oHWBePCHIr9uyhX6K9F4K0XX1yTZnFimL670SwcoZmLoTz3hAIYmGNDX5NbMcQ8sdLD9W5A_fGrMm42qcpj8oPR5tjGCyYSI92dQYretuA50zShZABCncGTaj_b3D2vOXZM_1eUTyN_OEVVdMX3R03MSwSIec8QvNxTVV5SkFmgtiohyM2J5D7YhbhnUzM6d_McxPbmMUeodX-e_lxWJ8grIzgOhXrDvJqGM3WhkowI_Me9BoUakWeWH2X8BJMX0MKfbaiS8geeax-pgUpZmiNJZWhwGoMvBAP8B8Y6BHqSZVstCsgkxZcr-gg4UDgfKXoiWzadZgWlXXoL3XIZvgbzVkk_lqdhxjzr3Xwwn_l-WVR_l6nk_dIhzLETzQy_Gz_Voy_OcVLLzxhpor98bxH8_HtVtZVdhUq2kVDLlx9ghk-5MXFVxttjZOG6Y3CLgy5-WS0)
 
 ## 关于微服务架构（中台架构、领域驱动设计、组件设计原则），你有什么样的思考和认识？
 
