@@ -19,6 +19,8 @@ Page_view 表和 user 表结构与数据示例如下：
 <img src="./res/assignment-page-view.jpg" alt="page-view" width="48%;" />
 <img src="./res/assignment-user.jpg" alt="user" width="48%;" />
 </div>
+
+
 - map函数的输入
 
   page_view 的行数据 和 user 的行数
@@ -30,8 +32,10 @@ Page_view 表和 user 表结构与数据示例如下：
   - 输出以 JOIN 之后所关心的列作为 Value，当有多个列时， Value 是这些列的组合。在 Value 中还会包含表的 Tag 信息，用于标明此 Value 对应于哪个表。如上 page_view 表的 pageid 和 user 表的 age
 
     示例输出，粗体为 Tag信息
-    1 -- page_view
-    2 -- user
+    
+    - 1 -- page_view
+
+    - 2 -- user
 
     page_view
 
