@@ -49,4 +49,4 @@ if __name__ == "__main__":
   print(f'{user_id} login in: {checkPW(user_id, incorrect_passwd, cipher)}')
 ```
 
-源码文件参考[check_passwd.py](./check_passwd.py) 或者 [ipython notebook](check_passwd.ipynb)
+源码文件见[check_passwd.py](./check_passwd.py) 或者 [ipython notebook](check_passwd.ipynb)

@@ -75,14 +75,12 @@
 
 ### XSS 攻击
 
-
-
-#### XSS 攻击防御手段
-
 <div align=center>
 <img src="./res/xss-attack.jpg" alt="xss-attack" width="50%;" />
 <img src="./res/xss-attack2.jpg" alt="xss-attack" width="48%;" />
 </div>
+
+#### XSS 攻击防御手段
 
 消毒！消毒几乎是所有网站最必备的XSS防攻手段。
 
@@ -628,5 +626,7 @@ ModSecurity采用处理逻辑与规则集合分离的架构模式。处理逻辑
 ## 参考
 
 [单向散列加密](https://baike.baidu.com/item/%E5%8D%95%E5%90%91%E6%95%A3%E5%88%97%E5%87%BD%E6%95%B0)
+
 [互联网应对高峰流量控制](https://www.cnblogs.com/aspirant/p/9093437.html)
+
 [什么是灰度发布，以及灰度发布 A/B 测试](https://testerhome.com/topics/15746)
