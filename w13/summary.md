@@ -56,6 +56,9 @@
 
 ### Spark VS Hadoop
 
+<div align=center>
+<img src="./res/hadoop-vs-spark.jpg" alt="hadoop-vs-spark" width="50%;" />
+</div>
 
 
 ### Spark 特点
@@ -94,7 +97,9 @@ rdd2 = rdd1.map(func)
 
 例如，
 
-
+<div align=center>
+<img src="./res/spark-computering-stage.jpg" alt="spark-computering-stage" width="70%;" />
+</div>
 
 这个DAG对应的Spark程序伪代码如下
 
@@ -133,7 +138,9 @@ RDD里面的每个数据分片，Spark都会创建一个计算任务去处理，
 
 Spark支持Standalone、Yarn、Mesos、Kubernetes等多种部署方案，几种部署方案原理也都是一样，只是不同的组件角色命名不同，但是核心功能和运行流程都差不多。
 
-
+<div align=center>
+<img src="./res/spark-executing-process.jpg" alt="spark-executing-process" width="70%;" />
+</div>
 
 首先，Spark应用程序启动在自己的JVM进程里，即Driver进程，启动后调用SparkContext初始化进行配置和输入数据。SparkContext启动DAGSchudler构造执行DAG图，切分成最小的执行单位，也就是计算任务。
 
@@ -145,8 +152,9 @@ Worker收到任务后，启动Executor进程开始执行任务。Executor先检�
 
 ### Spark生态体系
 
-
-
+<div align=center>
+<img src="./res/spark-ecosystem.jpg" alt="spark-ecosystem" width="70%;" />
+</div>
 
 
 ## 流计算
@@ -163,7 +171,9 @@ Worker收到任务后，启动Executor进程开始执行任务。Executor先检�
 
 ### Storm的基本概念
 
-
+<div align=center>
+<img src="./res/storm-element.jpg" alt="storm-element" width="70%;" />
+</div>
 
 - Nimbus：负责资源分配和任务调度
 - Supervisor：负责接收Nimbus分配的任务，启动和停止属于自己管理的Worker进程
@@ -181,9 +191,27 @@ Worker收到任务后，启动Executor进程开始执行任务。Executor先检�
 
 使用一个类型日志，其中包含车辆数据信息有：车牌号、车辆行驶的速度以及数据获取的位置。
 
+<div align=center>
+<img src="./res/storm-example.jpg" alt="storm-example" width="70%;" />
+</div>
 
+#### topology
 
+<div align=center>
+<img src="./res/storm-topology.jpg" alt="storm-topology" width="70%;" />
+</div>
 
+#### spout
+
+<div align=center>
+<img src="./res/storm-spout.jpg" alt="storm-spout" width="70%;" />
+</div>
+
+#### bolt
+
+<div align=center>
+<img src="./res/storm-bolt.jpg" alt="storm-bolt" width="70%;" />
+</div>
 
 ### Stream Groupings
 
@@ -205,7 +233,9 @@ Storm被广泛用来进行实时日志处理，出现在实时统计、实时风
 
 ### Spark Streaming
 
-
+<div align=center>
+<img src="./res/spark-streaming.jpg" alt="spark-streaming" width="70%;" />
+</div>
 
 ### Flink
 
@@ -213,7 +243,9 @@ Storm被广泛用来进行实时日志处理，出现在实时统计、实时风
 
 #### Flink批处理计算
 
-
+<div align=center>
+<img src="./res/flink.jpg" alt="flink" width="70%;" />
+</div>
 
 ## 大数据可视化
 
@@ -273,6 +305,10 @@ GMV即成交总金额 Gross Merchandise Volume，是电商网站统计营业额�
 
 网站数据分析重要的图表，表示用户的整个访问路径中每一步的转化率。
 
+<div align=center>
+<img src="./res/funnel-chart.jpg" alt="funnel-chart" width="70%;" />
+</div>
+
 ## 大数据算法与机器学习
 
 ### 网页排名算法PageRank
@@ -287,7 +323,16 @@ PageRank通过网络浩瀚的超级链接关系来确定一个页面的等级。
 
 ### KNN分类算法
 
+<div align=center>
+<img src="./res/knn-algorithm.jpg" alt="knn-algorithm" width="30%;" />
+</div>
+
+
 ### 贝叶斯分类算法
+
+<div align=center>
+<img src="./res/bayesian-algorithm.jpg" alt="bayesian-executing-process" width="70%;" />
+</div>
 
 ### K-means 聚类算法
 
@@ -295,15 +340,33 @@ PageRank通过网络浩瀚的超级链接关系来确定一个页面的等级。
 
 #### 基于人口统计的推荐
 
+<div align=center>
+<img src="./res/demographic-based-recommendation.jpg" alt="demographic-based-recommendation" width="70%;" />
+</div>
+
 #### 基于商品属性的推荐
+
+<div align=center>
+<img src="./res/content-based-recommendation.jpg" alt="content-based-recommendation" width="70%;" />
+</div>
 
 #### 基于用户的协同过滤推荐
 
+<div align=center>
+<img src="./res/user-collaborative-filtering-based-recommendation.jpg" alt="user-collaborative-filtering-based-recommendation" width="70%;" />
+</div>
+
 #### 基于商品的协同过滤推荐
+
+<div align=center>
+<img src="./res/content-collaborative-filtering-based-recommendation.jpg" alt="spark-executing-process" width="70%;" />
+</div>
 
 ### 机器学习系统架构
 
-
+<div align=center>
+<img src="./res/ml-workflow.jpg" alt="ml-workflow" width="70%;" />
+</div>
 
 #### 样本
 
@@ -320,4 +383,8 @@ PageRank通过网络浩瀚的超级链接关系来确定一个页面的等级。
 
 
 ## 参考
+
+[推荐引擎初探](https://developer.ibm.com/zh/articles/1103-zhaoct-recommstudy1/)
+
+[分类算法之朴素贝叶斯分类(Naive Bayesian classification)](https://www.cnblogs.com/leoo2sk/archive/2010/09/17/naive-bayesian-classifier.html)
 
