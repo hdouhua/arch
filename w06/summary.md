@@ -1,5 +1,46 @@
-# 06周总结
-
+# 06周总结——技术选型2
+* [数据库分片](#数据库分片)
+    * [数据分片的算法](#数据分片的算法)
+    * [数据分片的挑战](#数据分片的挑战)
+    * [分布式数据库中间件](#分布式数据库中间件)
+      * [Mycat](#mycat)
+      * [Amoeba/Cobar 架构](#amoebacobar-架构)
+    * [分布式数据库部署方案](#分布式数据库部署方案)
+      * [单服务，单数据库](#单服务单数据库)
+      * [服务集群，主从复制](#服务集群主从复制)
+      * [多服务集群，多主从复制](#多服务集群多主从复制)
+      * [综合部署](#综合部署)
+* [NoSQL](#nosql)
+    * [CAP 原理](#cap-原理)
+    * [CAP原理与数据一致性冲突](#cap原理与数据一致性冲突)
+      * [最终一致性](#最终一致性)
+    * [ACID与BASE](#acid与base)
+      * [ACID](#acid)
+      * [BASE](#base)
+* [分布式一致 ZooKeeper](#分布式一致-zookeeper)
+    * [分布式系统脑裂](#分布式系统脑裂)
+      * [分布式一致算法paxos](#分布式一致算法paxos)
+    * [ZooKeeper架构](#zookeeper架构)
+    * [zab协议](#zab协议)
+    * [ZooKeeper的树状记录结构](#zookeeper的树状记录结构)
+* [Doris 架构分析](#doris-架构分析)
+    * [逻辑架构](#逻辑架构)
+    * [概念模型](#概念模型)
+    * [关键技术点](#关键技术点)
+      * [数据分区](#数据分区)
+      * [可用性](#可用性)
+      * [扩容时的数据迁移](#扩容时的数据迁移)
+* [搜索引擎](#搜索引擎)
+    * [互联网搜索引擎整体架构](#互联网搜索引擎整体架构)
+    * [爬虫系统架构](#爬虫系统架构)
+    * [文档矩阵与倒排索引](#文档矩阵与倒排索引)
+    * [文档与倒排索引](#文档与倒排索引)
+    * [带词频的倒排索引](#带词频的倒排索引)
+    * [带词频与位置的倒排索引](#带词频与位置的倒排索引)
+    * [Lucene架构](#lucene架构)
+    * [ElasticSearch架构](#elasticsearch架构)
+    * [PageRank 算法](#pagerank-算法)
+* [说明](#说明)
 ## 数据库分片
 
 数据库特别大，写压力特别大时，就需要考虑数据分片了！
@@ -9,13 +50,13 @@
 - 代码实现分片key映射到服务器编号
 
   <div align=center>
-    <img src="./res/sharding-key-calc-by-code.jpg" alt="sharding-key-calc-by-code" width="45%;" />
+    <img src="./res/sharding-key-calc-by-code.jpg" alt="sharding-key-calc-by-code" width="60%;" />
   </div>
 
 - 外部映射表存储
 
   <div align=center>
-    <img src="./res/sharding-key-calc-by-config.jpg" alt="sharding-key-calc-by-config" width="45%;" />
+    <img src="./res/sharding-key-calc-by-config.jpg" alt="sharding-key-calc-by-config" width="60%;" />
   </div>
 
 ### 数据分片的挑战
@@ -29,18 +70,21 @@
 
 #### Mycat
 
-TBD
+<div align=center>
+  <img src="./res/mycat-arch.png" alt="mycat-arch" width="70%;" />
+</div>
 
 #### Amoeba/Cobar 架构
 
 <div align=center>
-  <img src="./res/cobar-arch.jpg" alt="cobar-arch" width="25%;" />
+  <img src="./res/cobar-arch.jpg" alt="cobar-arch" width="35%;" />
 </div>
+
 
 - 组件模型
 
   <div align=center>
-    <img src="./res/cobar-component-model.jpg" alt="cobar-component-model" width="20%;" />
+    <img src="./res/cobar-component-model.jpg" alt="cobar-component-model" width="30%;" />
   </div>
 
 - 路由配置
@@ -48,34 +92,36 @@ TBD
 - 集群伸缩
 
   <div align=center>
-    <img src="./res/cobar-scale.jpg" alt="cobar-scale" width="40%;" />
+    <img src="./res/cobar-scale.jpg" alt="cobar-scale" width="50%;" />
   </div>
+
+- 扩容策略
 
 ### 分布式数据库部署方案
 
-- 单服务，单数据库
+#### 单服务，单数据库
 
-  <div align=center>
-    <img src="./res/db-cluster-single.jpg" alt="db-cluster-single" width="40%;" />
-  </div>
+<div align=center>
+  <img src="./res/db-cluster-single.jpg" alt="db-cluster-single" width="50%;" />
+</div>
 
-- 服务集群，主从复制
+#### 服务集群，主从复制
 
-  <div align=center>
-    <img src="./res/db-cluster-single-cluster.jpg" alt="db-cluster-single-cluster" width="40%;" />
-  </div>
+<div align=center>
+  <img src="./res/db-cluster-single-cluster.jpg" alt="db-cluster-single-cluster" width="50%;" />
+</div>
 
-- 多服务集群，多主从复制
+#### 多服务集群，多主从复制
 
-  <div align=center>
-    <img src="./res/db-cluster-multiple-cluster.jpg" alt="cobar-scale" width="40%;" />
-  </div>
+<div align=center>
+  <img src="./res/db-cluster-multiple-cluster.jpg" alt="cobar-scale" width="50%;" />
+</div>
 
-- 综合部署
+#### 综合部署
 
-  <div align=center>
-    <img src="./res/db-cluster-multiple-sharding.jpg" alt="db-cluster-multiple-sharding" width="40%;" />
-  </div>
+<div align=center>
+  <img src="./res/db-cluster-multiple-sharding.jpg" alt="db-cluster-multiple-sharding" width="50%;" />
+</div>
 
 ## NoSQL
 
@@ -168,11 +214,11 @@ TBD
 
   系统中所有数据副本，在经过一段时间的同步后，最终能达到一个一致的状态。因此，最终一致性的本质是需要系统保证数据能够达到一致，而不需要实时保证系统数据的强一致性。
 
-### 分布式一致 zookeeper
+## 分布式一致 ZooKeeper
 
 这部分讲义也比较乱，需要自己去学习补充。
 
-#### 分布式系统脑裂
+### 分布式系统脑裂
 
 在一个分布式系统中，不同服务器获得了互相冲突的数据信息或指令，导致整个集群陷入混乱，数据损坏。
 
@@ -184,15 +230,29 @@ TBD
 - acceptor
 - learner
 
-#### zab协议
+### ZooKeeper架构
 
-TBD
+<div align=center>
+  <img src="./res/zookeeper-arch.jpg" alt="zookeeper-arch" width="70%;" />
+</div>
 
-### Doris 架构分析
+### zab协议
+
+<div align=center>
+  <img src="./res/zab1.jpg" alt="zab1" width="50%;" />
+  <img src="./res/zab2.jpg" alt="zab2" width="70%;" />
+</div>
+
+### ZooKeeper的树状记录结构
+
+
+
+
+## Doris 架构分析
 
 海量数据的KV Engine
 
-#### 逻辑架构
+### 逻辑架构
 
 - 二层架构
   - Client
@@ -208,7 +268,7 @@ TBD
 </div>
 
 
-#### 概念模型
+### 概念模型
 
 - machine：物理机器
 - node：分区单元，一台物理机可以运行多个node
@@ -218,16 +278,16 @@ TBD
 </div>
 
 
-#### 关键技术点
+### 关键技术点
 
-##### 数据分区
+#### 数据分区
 
 - 基于虚拟节点的分区算法，兼顾
 
   - 均衡性
   - 波动性：优于一致性hash
 
-##### 可用性
+#### 可用性
 
 - 瞬时失效
 - 临时失效
@@ -242,11 +302,42 @@ TBD
 	- faliover
 	  - TBD
 
-##### 扩容时的数据迁移
+#### 扩容时的数据迁移
 
 TBD
+
+## 搜索引擎
+
+### 互联网搜索引擎整体架构
+
+<div align=center><img src="./res/internet-search-engine.jpg" alt="internet-search-engine" width="70%;" /></div>
+
+### 爬虫系统架构
+
+<div align=center><img src="./res/web-crawler.jpg" alt="web-crawler" width="70%;" /></div>
+
+### 文档矩阵与倒排索引
+
+### 文档与倒排索引
+
+### 带词频的倒排索引
+
+### 带词频与位置的倒排索引
+
+### Lucene架构
+
+<div align=center><img src="./res/lucene-arch.jpg" alt="lucene-arch" width="70%;" /></div>
+
+### ElasticSearch架构
+
+- 索引分片，实现分布式
+
+- 索引备份，实现高可用
+
+- API更简单、更高级
+
+### PageRank 算法
 
 ## 说明
 
 本周工作较忙，Mycat、Cobar、zookeeper 和 Doris 的研究待完成。
-
