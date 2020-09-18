@@ -104,45 +104,65 @@
 0. 零阶段 。。。
 单机版：应用+数据
 
-<img src="./res/stage0.jpg" alt="internet-arch-stage0" style="zoom:30%;" />
+<div align=center>
+<img src="./res/stage0.jpg" alt="internet-arch-stage0" width="35%" />
+</div>
 
 1. 应用和数据分离
 
-<img src="./res/stage1.jpg" alt="internet-arch-stage1" style="zoom:30%;" />
+<div align=center>
+<img src="./res/stage1.jpg" alt="internet-arch-stage1" width="35%" />
+</div>
 
 2. 引入缓存
 
-<img src="./res/stage2.jpg" alt="internet-arch-stage2" style="zoom:50%;" />
+<div align=center>
+<img src="./res/stage2.jpg" alt="internet-arch-stage2" width="45%" />
+</div>
 
 3. 应用服务器集群
 
 改善系统的并发处理能力
 
-<img src="./res/stage3.jpg" alt="internet-arch-stage3" style="zoom:50%;" />
+<div align=center>
+<img src="./res/stage3.jpg" alt="internet-arch-stage3" width="50%" />
+</div>
 
 4. 数据库读写分离
 
-<img src="./res/stage4.jpg" alt="internet-arch-stage4" style="zoom:50%;" />
+<div align=center>
+<img src="./res/stage4.jpg" alt="internet-arch-stage4" width="65%" />
+</div>
 
 5. 反向代理 + CDN
 
-<img src="./res/stage5.jpg" alt="internet-arch-stage5" style="zoom:50%;" />
+<div align=center>
+<img src="./res/stage5.jpg" alt="internet-arch-stage5" width="80%" />
+</div>
 
 6. 分布式文件系统 + 分布式数据库
 
-<img src="./res/stage6.jpg" alt="internet-arch-stage6" style="zoom:50%;" />
+<div align=center>
+<img src="./res/stage6.jpg" alt="internet-arch-stage6" width="80%" />
+</div>
 
 7. NoSQL + 搜索引擎
 
-<img src="./res/stage7.jpg" alt="internet-arch-stage7" style="zoom:50%;" />
+<div align=center>
+<img src="./res/stage7.jpg" alt="internet-arch-stage7" width="80%" />
+</div>
 
 8. 业务拆分
 
-<img src="./res/stage8.jpg" alt="internet-arch-stage8" style="zoom:50%;" />
+<div align=center>
+<img src="./res/stage8.jpg" alt="internet-arch-stage8" width="80%" />
+</div>
 
 9. 微服务 + 中台化
 
-<img src="./res/stage9.jpg" alt="internet-arch-stage9" style="zoom:50%;" />
+<div align=center>
+<img src="./res/stage9.jpg" alt="internet-arch-stage9" width="80%" />
+</div>
 
 10. 待定义。。。
 
@@ -273,7 +293,9 @@
 
 ### 互联网架构技术一览
 
-<img src="./res/互联网架构技术一览.jpg" alt="internet-arch-gallery" style="zoom:30%;" />
+<div align=center>
+<img src="./res/互联网架构技术一览.jpg" alt="internet-arch-gallery" width="50%" />
+</div>
 
 #### 前端架构
 
@@ -335,7 +357,9 @@ TBD
 
 我们在分析的是全球第6大网站 :) ——使用较简单的技术架构也可以支撑起这样的访问量！
 
-<img src="./res/wiki-arch.jpg" alt="wiki-architecture" style="zoom:50%;" />
+<div align=center>
+<img src="./res/wiki-arch.jpg" alt="wiki-architecture" width="65%" />
+</div>
 
 ### 淘宝早期技术架构演进
 

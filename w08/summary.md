@@ -13,7 +13,7 @@
       * [队列](#队列)
           * [应用场景](#应用场景)
       * [树](#树)
-          * [二叉排序树/二叉搜索树 BST](#二叉排序树二叉搜索树-bst)
+          * [二叉排序树（二叉搜索树 BST）](#二叉排序树二叉搜索树-bst)
             * [平衡二叉排序树 AVL](#平衡二叉排序树-avl)
             * [旋转二叉排序树恢复平衡](#旋转二叉排序树恢复平衡)
           * [红黑树 RBT](#红黑树-rbt)
@@ -124,7 +124,7 @@ NP-complete：是一个 NP-hard 问题，也是一个 NP 问题
 
 #### 树
 
-##### 二叉排序树/二叉搜索树 BST
+##### 二叉排序树（二叉搜索树 BST）
 
 - 左子树上所有节点的值均小于或等于它的根节点的值
 
@@ -235,7 +235,6 @@ NP-complete：是一个 NP-hard 问题，也是一个 NP 问题
 遗传算法得到的不是最优解。
 
 > 数据结构与算法是必备基础，但算法不是必须能写出！
-
 
 
 ## 网络与数据库
@@ -358,8 +357,6 @@ NP-complete：是一个 NP-hard 问题，也是一个 NP 问题
 
 计算机之间如何进行网络请求？
 
-
-
 #### 阻塞I/O BIO blocking I/O
 
 阻塞I/O：进行I/O操作时，用户线程会一直阻塞，直到读操作/写操作完成。
@@ -435,7 +432,6 @@ explain select * from users whee id=1;
 #### 执行计划
 
 <div align=center><img src="./res/database-execution-plan.jpg" alt="database execution plan" /></div>
-
 
 
 现在来回答：为什么PrepareStatement更好

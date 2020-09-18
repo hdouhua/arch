@@ -59,7 +59,7 @@
 - 大数据分布式计算框架 MapReduce
 - NoSQL数据库系统BigTable
 
-搜索引擎主要就做两件事：网页抓取，索引构建和排序。而在这个过程中，有大量的数据需要存储和计算。“三驾马车”就是用来解决这个问题的。
+搜索引擎主要就做两件事：网页抓取、索引构建和排序。而在这个过程中，有大量的数据需要存储和计算。“三驾马车”就是用来解决这个问题的。
 
 浏览下Hadoop的代码，这个纯用Java编写的软件其实没有什么高深的技术难点，使用的也就是一些最基础的编程技术，没有什么出奇之处，但它却给社会带来了巨大的影响，甚至带动一场深刻的科技革命，推动了人工智能的发展进步。
 
@@ -93,10 +93,6 @@ Hive出现后极大程度地降低了Hadoop的使用难度，迅速得到开发�
 
 在Hadoop早期，MapReduce既是一个执行引擎，又是一个调度框架，服务器集群的资源调度管理由MapReduce自己完成。但是这样不利于资源复用，也使得MapReduce非常臃肿。于是一个新项目启动了，将MapReduce执行引擎和资源调度分离开来，这就是Yarn。2012年，Yarn成为一个独立的项目开始运营，随后被各类大数据产品支持，成为大数据平台上最主流的资源调度系统。
 
-<div align=center>
-<img src="./res/hadoop-ecosystem.jpg" alt="hadoop-ecosystem" width="70%;" />
-</div>
-
 同样是在2012年，UC伯克利AMP实验室开发的Spark开始崭露头角。当时AMP实验室的马铁博士发现使用MapReduce进行机器学习的时候性能非常差，因为机器学习算法通常需要进行很多次的迭代计算，而MapReduce每执行一次Map和Reduce计算都需要重新启动一次作业，带来大量的无谓消耗。还有一点就是MapReduce主要使用磁盘作为存储介质，而2012年的时候内存已经突破容量和成本限制，成为数据运行过程中主要的存储介质。Spark一经推出，立即受到业界的追捧，并逐步替代MapReduce在企业应用中的地位。
 
 一般来说，像MapReduce、Spark这类计算框架处理的业务场景都被称作批处理计算，因为它们通常针对以“天”为单位产生的数据进行一次计算，然后得到需要的结果，这中间计算需要花费的时间大概是几十分钟甚至更长的时间。因为计算的数据是非在线得到的实时数据，而是历史数据，所以这类计算也被称为大数据离线计算。
@@ -106,6 +102,11 @@ Hive出现后极大程度地降低了Hadoop的使用难度，迅速得到开发�
 NoSQL系统处理的主要也是大规模海量数据的存储与访问，所以也被归为大数据技术。NoSQL曾经在2011年左右非常火爆，涌现出HBase、Cassandra等许多优秀的产品，其中HBase是从Hadoop中分离出来的，基于HDFS的NoSQL系统。
 
 上面这些基本上都可以归类为大数据引擎或者大数据框架。而大数据处理的主要应用场景包括数据分析、数据挖掘与机器学习。数据分析主要使用Hive、Spark SQL等SQL引擎完成；数据挖掘与机器学习则有专门的机器学习框架TensorFlow、Mahout以及MLlib等，内置了主要的机器学习和数据挖掘算法。
+
+<div align=center>
+<img src="./res/hadoop-ecosystem.jpg" alt="hadoop-ecosystem" width="70%;" />
+<p>Hadoop 生态系统</p>
+</div>
 
 <div align=center>
 <img src="./res/big-data-ecosystem.jpg" alt="big-data-ecosystem" width="70%;" />
@@ -154,7 +155,7 @@ Google得到这些网页文件是要构建搜索引擎，需要对所有文件�
 病历，特别是专家写的病历，本身就是一笔巨大的知识财富，利用大数据技术将这些知识进行处理、分析、统计、挖掘，可以构成一个病历知识库，可以分享给更多人，即构成一个智能辅助诊疗系统。
 
 <div align=center>
-<img src="./res/big-data-in-treatment.jpg" alt="big-data-in-treatment" width="70%;" />
+<img src="./res/big-data-in-treatment.jpg" alt="big-data-in-treatment" width="60%;" />
 </div>
 
 #### AI外语老师
@@ -352,7 +353,7 @@ DataNode每3秒向NameNode发送心跳，如果10分钟DataNode没有向NameNode
 #### 副本摆放策略
 
 <div align=center>
-<img src="./res/hdfs-replica.jpg" alt="hdfs-replica" width="70%;" />
+<img src="./res/hdfs-replica.jpg" alt="hdfs-replica" width="35%;" />
 </div>
 
 ### 压缩
@@ -362,7 +363,7 @@ DataNode每3秒向NameNode发送心跳，如果10分钟DataNode没有向NameNode
 加速数据在网络和磁盘上的传输
 
 <div align=center>
-<img src="./res/hdfs-compression.jpg" alt="hdfs-compression" width="70%;" />
+<img src="./res/hdfs-compression.jpg" alt="hdfs-compression" width="50%;" />
 </div>
 
 ### SequenceFile
@@ -374,7 +375,9 @@ DataNode每3秒向NameNode发送心跳，如果10分钟DataNode没有向NameNode
 ### Hadoop文件系统
 
 
+
 ### Java接口
+
 
 
 ## MapReduce

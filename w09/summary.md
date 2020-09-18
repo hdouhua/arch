@@ -238,74 +238,74 @@ java-optimization-parts
   
     对象成员存储在堆上。如果两个线程同时更新同一个对象的同一成员，那这代码就不是线程安全的。
 
-思考
-
-Java Web应用的多线程从哪里来的？
-
-当 HTTP 请求到达时，Servlet容器通过调度线程(Dispatcher Thread) 调度它管理下线程池中等待执行的线程（Worker Thread）给请求者。因此请求分配到的处理线程可以是新建线程，也可以是从线程池中获取的。
-
-Servlet是线程安全的吗？
-
-Servlet 默认是单例模式，在 web 容器中只创建一个实例，所以多个线程同时访问 Servlet 的时候，Servlet 不是线程安全的。
-那么 web 容器能为每个请求创建一个 Servlet 的实例吗？当然是可以的，只要 Servlet 实现 SingleThreadModel 接口，就可以了。
-
-ThreadLocal 的实现
-
-<div align=center><img src="./res/java-working-memory.jpg" alt="java-working-memory" width="70%;" /></div>
+  思考
+  
+  Java Web应用的多线程从哪里来的？
+  
+  当 HTTP 请求到达时，Servlet容器通过调度线程(Dispatcher Thread) 调度它管理下线程池中等待执行的线程（Worker   Thread）给请求者。因此请求分配到的处理线程可以是新建线程，也可以是从线程池中获取的。
+  
+  Servlet是线程安全的吗？
+  
+  Servlet 默认是单例模式，在 web 容器中只创建一个实例，所以多个线程同时访问 Servlet 的时候，Servlet 不是线程安全  的。
+  那么 web 容器能为每个请求创建一个 Servlet 的实例吗？当然是可以的，只要 Servlet 实现 SingleThreadModel 接  口，就可以了。
+  
+  ThreadLocal 的实现
+  
+  <div align=center><img src="./res/java-working-memory.jpg" alt="java-working-memory" width="70%;" /></div>
 
 - Java 内存泄漏
 
-Java 内存泄漏是由于开发人员的错误引起的。
-
-如果程序保留对永远不再使用的对象的引用，这些对象将会占用并耗尽内存。
-
-- 长生命周期对象
-- 静态容器
-- 缓存
-
-合理使用线程池和对象池
-
-- 复用线程或对象资源，避免在程序的生命期中创建和删除大对象
-- 池管理算法（记录哪些对象是空闲的，哪些对象正在使用）
-- 对象内容清除（ThreadLocal的清空）
-
-使用合适的JDK容器类（顺序表、链表、Hash）
-
-- LinkedList 和 ArrayList 的区别及适用场景
-
-- HashMap的算法实现即应用场景
-
-- 使用cocurrent包，CocurrentHashMap 和 HashMap的线程安全特性有什么不同？
-
-  CocurrentHashMap 是线程安全的
-
-缩短对象生命周期，加速垃圾回收
-
-- 减少对象驻留内存的时间
-- 在使用时创建对象，用完释放
-- 创建对象的步骤（静态代码段 - 静态变量 - 父类构造函数 - 子类构造函数）
-
-使用I/O buffer 及 NIO
-
-- 延迟写与提前读策略
-- 异步无阻塞 I/O 通信
-
-优先使用组合替代继承
-
-- 减少对象耦合
-- 避免太深的继承层次带来的对象创建性能损失
-
-合理使用单例模式
-
-- 无状态对象
-- 线程安全
-
-虚拟化所有层次
-
-- 计算机的任何问题都可以通过间接层级解决
-- 一致性hash算法的虚拟化实现
-- 面向接口编程
-- 7层网络协议
+  Java 内存泄漏是由于开发人员的错误引起的。
+  
+  如果程序保留对永远不再使用的对象的引用，这些对象将会占用并耗尽内存。
+  
+  - 长生命周期对象
+  - 静态容器
+  - 缓存
+  
+  合理使用线程池和对象池
+  
+  - 复用线程或对象资源，避免在程序的生命期中创建和删除大对象
+  - 池管理算法（记录哪些对象是空闲的，哪些对象正在使用）
+  - 对象内容清除（ThreadLocal的清空）
+  
+  使用合适的JDK容器类（顺序表、链表、Hash）
+  
+  - LinkedList 和 ArrayList 的区别及适用场景
+  
+  - HashMap的算法实现即应用场景
+  
+  - 使用cocurrent包，CocurrentHashMap 和 HashMap的线程安全特性有什么不同？
+  
+    CocurrentHashMap 是线程安全的
+  
+  缩短对象生命周期，加速垃圾回收
+  
+  - 减少对象驻留内存的时间
+  - 在使用时创建对象，用完释放
+  - 创建对象的步骤（静态代码段 - 静态变量 - 父类构造函数 - 子类构造函数）
+  
+  使用I/O buffer 及 NIO
+  
+  - 延迟写与提前读策略
+  - 异步无阻塞 I/O 通信
+  
+  优先使用组合替代继承
+  
+  - 减少对象耦合
+  - 避免太深的继承层次带来的对象创建性能损失
+  
+  合理使用单例模式
+  
+  - 无状态对象
+  - 线程安全
+  
+  虚拟化所有层次
+  
+  - 计算机的任何问题都可以通过间接层级解决
+  - 一致性hash算法的虚拟化实现
+  - 面向接口编程
+  - 7层网络协议
 
 
 ## 秒杀
@@ -508,7 +508,7 @@ Java 内存泄漏是由于开发人员的错误引起的。
 
 ## 参考
 
-[JVM/垃圾回收]([https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6.md](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/JVM垃圾回收.md))
+[JVM 垃圾回收]([https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/JVM%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6.md](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/JVM垃圾回收.md))
 
 [Java Garbage Collection Basics](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html)
 

@@ -1,4 +1,5 @@
 # 06周总结——技术选型2
+
 * [数据库分片](#数据库分片)
     * [数据分片的算法](#数据分片的算法)
     * [数据分片的挑战](#数据分片的挑战)
@@ -41,6 +42,7 @@
     * [ElasticSearch架构](#elasticsearch架构)
     * [PageRank 算法](#pagerank-算法)
 * [说明](#说明)
+
 ## 数据库分片
 
 数据库特别大，写压力特别大时，就需要考虑数据分片了！
@@ -77,9 +79,8 @@
 #### Amoeba/Cobar 架构
 
 <div align=center>
-  <img src="./res/cobar-arch.jpg" alt="cobar-arch" width="35%;" />
+  <img src="./res/cobar-arch.jpg" alt="cobar-arch" width="30%;" />
 </div>
-
 
 - 组件模型
 
@@ -92,7 +93,7 @@
 - 集群伸缩
 
   <div align=center>
-    <img src="./res/cobar-scale.jpg" alt="cobar-scale" width="50%;" />
+    <img src="./res/cobar-scale.jpg" alt="cobar-scale" width="40%;" />
   </div>
 
 - 扩容策略
@@ -247,7 +248,6 @@
 
 
 
-
 ## Doris 架构分析
 
 海量数据的KV Engine
@@ -267,7 +267,6 @@
   <img src="./res/doris-arch.jpg" alt="doris-architecture" width="60%;" />
 </div>
 
-
 ### 概念模型
 
 - machine：物理机器
@@ -276,7 +275,6 @@
 <div align=center>
   <img src="./res/doris-conception-model.jpg" alt="doris-conception-model" width="60%;" />
 </div>
-
 
 ### 关键技术点
 

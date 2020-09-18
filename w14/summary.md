@@ -17,7 +17,7 @@
     * [淘宝大数据平台](#淘宝大数据平台)
       * [淘宝大数据平台导入/导出数据](#淘宝大数据平台导入导出数据)
     * [美团大数据平台](#美团大数据平台)
-    * [滴滴实时 大数据平台](#滴滴实时-大数据平台)
+    * [滴滴实时大数据平台](#滴滴实时大数据平台)
 * [物联网平台](#物联网平台)
     * [物联网平台架构](#物联网平台架构)
     * [物联网大数据处理](#物联网大数据处理)
@@ -49,7 +49,7 @@
 ### 大数据架构
 
 <div align=center>
-<img src="./res/big-data-arch.jpg" alt="big-data-arch" width="70%;" />
+<img src="./res/big-data-arch.jpg" alt="big-data-arch" width="60%;" />
 </div>
 
 ### 数据采集与导入
@@ -83,7 +83,7 @@ MapReduce、Hive、Spark等进行的计算处理被称作是离线计算，HDFS�
 ### Sqoop导入/导出数据库数据
 
 <div align=center>
-<img src="./res/sqoop-etl.jpg" alt="sqoop etl" width="70%;" />
+<img src="./res/sqoop-etl.jpg" alt="sqoop etl" width="60%;" />
 </div>
 
 ### Canal实时导入MySQL数据
@@ -95,7 +95,7 @@ MapReduce、Hive、Spark等进行的计算处理被称作是离线计算，HDFS�
 ### Flume从日志导入数据
 
 <div align=center>
-<img src="./res/flume-import-log.jpg" alt="flume-import-log" width="70%;" />
+<img src="./res/flume-import-log.jpg" alt="flume-import-log" width="60%;" />
 </div>
 
 #### Flume级联部署
@@ -140,7 +140,7 @@ MapReduce、Hive、Spark等进行的计算处理被称作是离线计算，HDFS�
 <img src="./res/big-data-meituan.jpg" alt="big-data-meituan" width="70%;" />
 </div>
 
-### 滴滴实时 大数据平台
+### 滴滴实时大数据平台
 
 <div align=center>
 <img src="./res/big-data-didi.jpg" alt="big-data-didi" width="70%;" />
@@ -151,13 +151,13 @@ MapReduce、Hive、Spark等进行的计算处理被称作是离线计算，HDFS�
 ### 物联网平台架构
 
 <div align=center>
-<img src="./res/iot-platform.jpg" alt="iot platform" width="70%;" />
+<img src="./res/iot-platform.jpg" alt="iot platform" width="50%;" />
 </div>
 
 ### 物联网大数据处理
 
 <div align=center>
-<img src="./res/iot-big-data.jpg" alt="big-data in iot" width="70%;" />
+<img src="./res/iot-big-data.jpg" alt="big-data in iot" width="50%;" />
 </div>
 
 ## 区块链

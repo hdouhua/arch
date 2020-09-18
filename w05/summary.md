@@ -22,7 +22,7 @@
       * [合理使用缓存](#合理使用缓存)
 * [消息队列与异步架构](#消息队列与异步架构)
     * [消息队列构建异步调用架构](#消息队列构建异步调用架构)
-      * [消息队列的异步调用模型](#消息队列的异步调用模型)
+    * [消息队列的异步调用模型](#消息队列的异步调用模型)
     * [优点](#优点)
     * [主要MQ产品](#主要mq产品)
 * [负载均衡架构](#负载均衡架构)
@@ -96,7 +96,7 @@
 
 #### 多层反向代理缓存
 
-<div align=center><img src="./res/multi-layer-reverse-proxy-cache.jpg" alt="multi-layer-reverse-proxy-cache" width="50%;" /></div>
+<div align=center><img src="./res/multi-layer-reverse-proxy-cache.jpg" alt="multi-layer-reverse-proxy-cache" width="40%;" /></div>
 
 ### 内容分发网络CDN
 
@@ -202,7 +202,7 @@
 - 消息队列
 - 消息消费者
 
-#### 消息队列的异步调用模型
+### 消息队列的异步调用模型
 
 - 点对点模型
 

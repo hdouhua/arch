@@ -24,8 +24,8 @@
     * [新增用户数](#新增用户数)
     * [用户留存率](#用户留存率)
     * [活跃用户数](#活跃用户数)
-    * [PV](#pv)
-    * [GMV](#gmv)
+    * [页面浏览量PV](#页面浏览量pv)
+    * [成交总额GMV](#成交总额gmv)
     * [转化率](#转化率)
   * [数据可视化图表与数据监控](#数据可视化图表与数据监控)
     * [折线图](#折线图)
@@ -37,7 +37,7 @@
     * [PageRank让链接来投票](#pagerank让链接来投票)
   * [KNN分类算法](#knn分类算法)
   * [贝叶斯分类算法](#贝叶斯分类算法)
-  * [K-means 聚类算法](#k-means-聚类算法)
+  * [K-Means 聚类算法](#k-means-聚类算法)
   * [推荐引擎算法](#推荐引擎算法)
     * [基于人口统计的推荐](#基于人口统计的推荐)
     * [基于商品属性的推荐](#基于商品属性的推荐)
@@ -98,7 +98,7 @@ rdd2 = rdd1.map(func)
 例如，
 
 <div align=center>
-<img src="./res/spark-computering-stage.jpg" alt="spark-computering-stage" width="70%;" />
+<img src="./res/spark-computering-stage.jpg" alt="spark-computering-stage" width="50%;" />
 </div>
 
 这个DAG对应的Spark程序伪代码如下
@@ -139,7 +139,7 @@ RDD里面的每个数据分片，Spark都会创建一个计算任务去处理，
 Spark支持Standalone、Yarn、Mesos、Kubernetes等多种部署方案，几种部署方案原理也都是一样，只是不同的组件角色命名不同，但是核心功能和运行流程都差不多。
 
 <div align=center>
-<img src="./res/spark-executing-process.jpg" alt="spark-executing-process" width="70%;" />
+<img src="./res/spark-executing-process.jpg" alt="spark-executing-process" width="60%;" />
 </div>
 
 首先，Spark应用程序启动在自己的JVM进程里，即Driver进程，启动后调用SparkContext初始化进行配置和输入数据。SparkContext启动DAGSchudler构造执行DAG图，切分成最小的执行单位，也就是计算任务。
@@ -153,7 +153,7 @@ Worker收到任务后，启动Executor进程开始执行任务。Executor先检�
 ### Spark生态体系
 
 <div align=center>
-<img src="./res/spark-ecosystem.jpg" alt="spark-ecosystem" width="70%;" />
+<img src="./res/spark-ecosystem.jpg" alt="spark-ecosystem" width="60%;" />
 </div>
 
 
@@ -172,7 +172,7 @@ Worker收到任务后，启动Executor进程开始执行任务。Executor先检�
 ### Storm的基本概念
 
 <div align=center>
-<img src="./res/storm-element.jpg" alt="storm-element" width="70%;" />
+<img src="./res/storm-element.jpg" alt="storm-element" width="60%;" />
 </div>
 
 - Nimbus：负责资源分配和任务调度
@@ -192,7 +192,7 @@ Worker收到任务后，启动Executor进程开始执行任务。Executor先检�
 使用一个类型日志，其中包含车辆数据信息有：车牌号、车辆行驶的速度以及数据获取的位置。
 
 <div align=center>
-<img src="./res/storm-example.jpg" alt="storm-example" width="70%;" />
+<img src="./res/storm-example.jpg" alt="storm-example" width="60%;" />
 </div>
 
 #### topology
@@ -269,13 +269,13 @@ Storm被广泛用来进行实时日志处理，出现在实时统计、实时风
 
 用户下载注册，但是很少打开产品，表示产品缺乏黏性和吸引力。活跃用户数表示打开使用产品的用户数，根据统计口径不同，有日活跃用户数、月活跃用户数等。提升活跃是网站运营的重要目标，各类App常用推送优惠促销消息给用户的手段促使用户打开产品。
 
-#### PV
+#### 页面浏览量PV
 
 打开产品就是活跃，打开以后是否频繁操作，就是PV这个指标衡量，用户每次点击，每个页面跳转，被称为一个PV page view。PV是网页访问统计的重要指标，在移动App上，需要进行一些变通来进行统计。
 
-#### GMV
+#### 成交总额GMV
 
-GMV即成交总金额 Gross Merchandise Volume，是电商网站统计营业额（流水）、反映网站营收能力的重要指标。和GMV配合使用的还有订单量（用户下单总量）、客单价等。
+ Gross Merchandise Volume，是电商网站统计营业额（流水）、反映网站营收能力的重要指标。和GMV配合使用的还有订单量（用户下单总量）、客单价等。
 
 #### 转化率
 
@@ -323,49 +323,52 @@ PageRank通过网络浩瀚的超级链接关系来确定一个页面的等级。
 
 ### KNN分类算法
 
+K近邻分类算法
+
 <div align=center>
-<img src="./res/knn-algorithm.jpg" alt="knn-algorithm" width="30%;" />
+<img src="./res/knn-algorithm.jpg" alt="knn-algorithm" width="25%;" />
 </div>
 
 
 ### 贝叶斯分类算法
 
 <div align=center>
-<img src="./res/bayesian-algorithm.jpg" alt="bayesian-executing-process" width="70%;" />
+<img src="./res/bayesian-algorithm.jpg" alt="bayesian-executing-process" width="50%;" />
 </div>
+### K-Means 聚类算法
 
-### K-means 聚类算法
+K均值聚类算法
 
 ### 推荐引擎算法
 
 #### 基于人口统计的推荐
 
 <div align=center>
-<img src="./res/demographic-based-recommendation.jpg" alt="demographic-based-recommendation" width="70%;" />
+<img src="./res/demographic-based-recommendation.jpg" alt="demographic-based-recommendation" width="60%;" />
 </div>
 
 #### 基于商品属性的推荐
 
 <div align=center>
-<img src="./res/content-based-recommendation.jpg" alt="content-based-recommendation" width="70%;" />
+<img src="./res/content-based-recommendation.jpg" alt="content-based-recommendation" width="60%;" />
 </div>
 
 #### 基于用户的协同过滤推荐
 
 <div align=center>
-<img src="./res/user-collaborative-filtering-based-recommendation.jpg" alt="user-collaborative-filtering-based-recommendation" width="70%;" />
+<img src="./res/user-collaborative-filtering-based-recommendation.jpg" alt="user-collaborative-filtering-based-recommendation" width="60%;" />
 </div>
 
 #### 基于商品的协同过滤推荐
 
 <div align=center>
-<img src="./res/content-collaborative-filtering-based-recommendation.jpg" alt="spark-executing-process" width="70%;" />
+<img src="./res/content-collaborative-filtering-based-recommendation.jpg" alt="spark-executing-process" width="60%;" />
 </div>
 
 ### 机器学习系统架构
 
 <div align=center>
-<img src="./res/ml-workflow.jpg" alt="ml-workflow" width="70%;" />
+<img src="./res/ml-workflow.jpg" alt="ml-workflow" width="60%;" />
 </div>
 
 #### 样本
