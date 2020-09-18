@@ -4,26 +4,25 @@
 
 Inversion of Control：控制反转，是一种设计思想，编程范式。设计好的对象交给容器，而不是使用者直接控制。
 
- 让我们来梳理一下以下几个问题：
+让我们来梳理一下以下几个问题：
 
 - 谁控制谁？
 
-IoC容器控制
+  IoC容器控制
 
 - 控制什么？
 
-IoC容器控制了对象的创建和外部获取对象
+  IoC容器控制了对象的创建和外部获取对象
 
 - 为何说反转？
 
-传统应用程序中，客户端直接创建对象，对象直接获取依赖对象。现在是IoC容器接管了创建对象和注入依赖对象。
+  传统应用程序中，客户端直接创建对象，对象直接获取依赖对象。现在是IoC容器接管了创建对象和注入依赖对象。
 
-<div align=center>
-<img src="./res/traditional-style.jpeg" alt="traditional-style" width="40%;" />
-<img src="./res/ioc-style.jpeg" alt="ioc-style" width="40%;" />
-<div>图片来源于网络</div>
-</div>
-
+  <div align=center>
+  <img src="./res/traditional-style.jpeg" alt="traditional-style" width="40%;" />
+  <img src="./res/ioc-style.jpeg" alt="ioc-style" width="40%;" />
+  <div>图片来源于网络</div>
+  </div>
 
 ### 编程思想的转变
 
@@ -33,27 +32,25 @@ IoC很好的体现了面向对象设计法则——好莱坞原则。即，IoC�
 
 ## DI
 
-
-
 Dependency Injection 依赖注入：*被注入对象*依赖<u>IoC容器配置</u>*依赖对象*。目的是解耦合，提供一个灵活、可扩展的平台。
 
 - 谁依赖谁？
 
-应用程序依赖IoC容器
+  应用程序依赖IoC容器
 
 - 为什么依赖？
 
-应用程序需要IoC容器帮助提供其需要的外部资源
+  应用程序需要IoC容器帮助提供其需要的外部资源
 
 - 谁注入谁？
 
-（？）IoC容器注入应用程序的某个对象（应用程序依赖的对象）
+  （？）IoC容器注入应用程序的某个对象（应用程序依赖的对象）
 
 - 注入了什么？
 
-某个对象所需要的外部资源
+  某个对象所需要的外部资源
 
-在系统运行中，**IoC动态的向某个对象提供它所依赖的对象，这是通过DI来实现的**
+  在系统运行中，**IoC动态的向某个对象提供它所依赖的对象，这是通过DI来实现的**
 
 ## 设计原则、设计模式、IoC 及 DI
 
@@ -62,8 +59,6 @@ Dependency Injection 依赖注入：*被注入对象*依赖<u>IoC容器配置</u
 <img src="./res/ioc-patterns.png" alt="ioc-patterns" width="40%;" />
 <div>图片来源于tutorialsteacher</div>
 </div>
-
-
 
 ## 参考
 
