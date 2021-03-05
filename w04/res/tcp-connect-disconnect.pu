@@ -1,0 +1,57 @@
+@startuml TCP state@server-end
+
+skinparam sequenceMessageAlign center
+
+participant client as C
+participant server as S
+
+== server is LISTENing ==
+C -> S: SYN=1, seq=x
+note left of C: SYN_SENT
+note right of S: SYN_RECV
+S -> C: SYN=1, ACK=1, seq=y, ack=x+1
+note left of C: ESTABLISHED
+C -> S: ACK, seq=x+1, ack=y+1
+note right of S: ESTABLISHED
+
+== connected ==
+C <-> S: send data
+
+== closing ==
+
+opt client try to close connection
+C -> S: FIN=1, seq=u
+note left of C: FIN_WAIT_1
+S -> C: ACK=1, seq=v, ack=u+1
+note right of S: CLOSE_WAIT
+note left of C: FIN_WAIT_2
+S -> C: FIN=1, ACK=1, seq=w, ack=u+1
+note right
+FIN until server
+received all packets
+end note
+note right of S: LAST_ACK
+C -> S: ACK=1, seq=u+1, ack=w+1
+note left: TIME_WAIT
+note right of S: CLOSED
+C --> C: wait 2MSL
+note left: CLOSED
+end opt
+
+
+opt server try to close connection
+S -> C: FIN
+C -> S: ACK
+C -> S: FIN, ACK
+S -> C: ACK
+end opt
+
+== closed ==
+legend left
+tcp/ip:
+3-ways handshake on establish connection
+4-ways handshake on close connection
+SYN flood: netstat -n -p TCP | grep SYN_RECV
+end legend
+
+@enduml
