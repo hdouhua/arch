@@ -1,0 +1,96 @@
+@startuml
+' STYLE START
+hide empty members
+skinparam shadowing false
+' STYLE END
+class "Logger" as Logger << (S, SkyBlue) struct >> {
+  +init(label:_:)
+
+}
+class "Logger" as Logger1 << (E,orchid) extension >> {
+  -log(level:_:metadata:file:function:line:)
+
+}
+class "Logger" as Logger2 << (E,orchid) extension >> {
+  -trace(_:metadata:file:function:line:)
+  -debug(_:metadata:file:function:line:)
+  -info(_:metadata:file:function:line:)
+  -notice(_:metadata:file:function:line:)
+  -warning(_:metadata:file:function:line:)
+  -error(_:metadata:file:function:line:)
+  -critical(_:metadata:file:function:line:)
+
+}
+class "LoggingSystem" as LoggingSystem << (E,LightSteelBlue) enum >> {
+
+}
+class "Logger" as Logger4 << (E,orchid) extension >> {
+  -init(label:)
+  -init(label:factory:)
+
+}
+class "Logger.Level" as Logger.Level << (E,orchid) extension >> {
+
+}
+class "Logger.Level" as Logger.Level6 << (E,orchid) extension >> {
+
+}
+class "Logger.MetadataValue" as Logger.MetadataValue << (E,orchid) extension >> {
+
+}
+class "Logger" as Logger8 << (E,orchid) extension >> {
+
+}
+class "MultiplexLogHandler" as MultiplexLogHandler << (S, SkyBlue) struct >> {
+  -init(_:)
+  -log(level:message:metadata:file:function:line:)
+  -mutatingForEachHandler(_:)
+
+}
+class "StdioOutputStream" as StdioOutputStream << (S, SkyBlue) struct >> {
+  +write(_:)
+  +flush()
+
+}
+class "StreamLogHandler" as StreamLogHandler << (S, SkyBlue) struct >> {
+  +init(label:stream:)
+  -log(level:message:metadata:file:function:line:)
+  -prettify(_:)
+  -timestamp()
+
+}
+class "Logger.MetadataValue" as Logger.MetadataValue12 << (E,orchid) extension >> {
+  -init(stringLiteral:)
+
+}
+class "Logger.MetadataValue" as Logger.MetadataValue13 << (E,orchid) extension >> {
+
+}
+class "Logger.MetadataValue" as Logger.MetadataValue14 << (E,orchid) extension >> {
+  -init(dictionaryLiteral:)
+
+}
+class "Logger.MetadataValue" as Logger.MetadataValue15 << (E,orchid) extension >> {
+  -init(arrayLiteral:)
+
+}
+
+Logger.Level <.. Comparable
+Logger.MetadataValue <.. Equatable
+MultiplexLogHandler --|> LogHandler
+StdioOutputStream --|> TextOutputStream
+StreamLogHandler --|> LogHandler
+Logger.MetadataValue <.. ExpressibleByStringLiteral
+Logger.MetadataValue <.. CustomStringConvertible
+Logger.MetadataValue <.. ExpressibleByDictionaryLiteral
+Logger.MetadataValue <.. ExpressibleByArrayLiteral
+Logger <.. Logger1 : ext
+Logger <.. Logger2 : ext
+Logger <.. Logger4 : ext
+Logger.Level <.. Logger.Level6 : ext
+Logger <.. Logger8 : ext
+Logger.MetadataValue <.. Logger.MetadataValue12 : ext
+Logger.MetadataValue <.. Logger.MetadataValue13 : ext
+Logger.MetadataValue <.. Logger.MetadataValue14 : ext
+Logger.MetadataValue <.. Logger.MetadataValue15 : ext
+@enduml

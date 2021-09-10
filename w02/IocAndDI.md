@@ -18,7 +18,7 @@ Inversion of Control：控制反转，是一种设计思想，编程范式。设
 
 - 控制什么？
 
-  IoC容器控制了对象的创建和外部获取对象
+  IoC容器控制了对象的创建、生命周期和外部获取对象
 
 - 为何说反转？
 
@@ -59,6 +59,14 @@ Dependency Injection 依赖注入：*被注入对象*依赖<u>IoC容器配置</u
   在系统运行中，**IoC动态的向某个对象提供它所依赖的对象，这是通过DI来实现的**
 
 ## 设计原则、设计模式、IoC 及 DI
+
+依赖倒置DIP：依赖具体类变换为依赖抽象，是一种设计原则
+
+控制反转IOC（inversion of control）：是DIP的一种实现方式，常用于构建框架
+
+依赖注入DI：也是DIP的一种实现方式，类库设计的一种常用模式
+
+IOC容器：是一种框架，包括IOC和DI功能
 
 <div align=center>
 <img src="./res/principles-and-patterns.png" alt="principles-and-patterns" width="40%;" />
