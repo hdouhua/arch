@@ -1,0 +1,6 @@
+{
+  "rest-client.defaultHeaders": {
+    "User-Agent": "vscode-restclient",
+    "Content-Type": "application/json",
+  },
+}
