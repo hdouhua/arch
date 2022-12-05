@@ -12,7 +12,6 @@ JVM 垃圾回收就是将 JVM 堆中的已经不再被使用的对象清理掉�
 <img src="./res/jvm-gc-heap.png" alt="jvm heap" width="80%;" />
 </div>
 
-
 整个 JVM 垃圾回收的过程分为标记和回收。
 
 - JVM 通过一种可达性分析算法进行垃圾对象的标识，那些没有被标记的对象就是可回收的垃圾对象了。
@@ -40,9 +39,6 @@ JVM 垃圾回收就是将 JVM 堆中的已经不再被使用的对象清理掉�
 
 ## 参考
 
-[JVM/垃圾回收](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/JVM垃圾回收.md)
-
-[Java Garbage Collection Basics](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html)
-
-[UNDERSTANDING GARBAGE COLLECTION](https://hiteshkitty.wordpress.com/2016/07/06/understanding-garbage-collection/)
-
+- [JVM/垃圾回收](https://github.com/Snailclimb/JavaGuide/blob/master/docs/java/jvm/JVM垃圾回收.md)
+- [Java Garbage Collection Basics](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html)
+- [UNDERSTANDING GARBAGE COLLECTION](https://hiteshkitty.wordpress.com/2016/07/06/understanding-garbage-collection/)
